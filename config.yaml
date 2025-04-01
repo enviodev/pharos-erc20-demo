@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: erc20indexer
+description: ERC-20 indexer
+networks:
+  - id: 50002 # Pharos Devnet
+    start_block: 0
+    hypersync_config:
+      url: https://pharos-devnet.hypersync.xyz
+    contracts:
+      - name: ERC20
+        address: "0xcdcd03718f60592c9e120667bcfd9a104066eddf" #0xcdcd
+        handler: src/EventHandlers.ts
+        events:          
+          - event: "Transfer(address indexed from, address indexed to, uint256 value)"
+
